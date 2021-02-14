@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GroceryApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace GroceryApplication.DAO
     public interface IAppDao
     {
         DataTable CreateDataTable();
-        void AddRecord();
+        bool AddRecord(DataTable dt, ListModel model);
         void UpdateRecord();
         void DeleteRecord();
         void DeleteAllRecords();
@@ -30,9 +31,24 @@ namespace GroceryApplication.DAO
             return dataTable;
         }
 
-        public void AddRecord()
+        public bool AddRecord(DataTable dt, ListModel model)
         {
+            try
+            {
+                DataRow row = dt.NewRow();
+                row["ItemName"] = model.ItemName;
+                row["ItemPrice"] = model.ItemPrice;
+                row["ItemQuantity"] = model.ItemQuantity;
+                row["Taxable"] = model.Taxable;
+                dt.Rows.Add(row);
 
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
         }
 
         public void UpdateRecord()
