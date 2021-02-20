@@ -50,12 +50,12 @@ namespace GroceryApplication
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.TaxableItems = new System.Windows.Forms.Label();
             this.SubTotal = new System.Windows.Forms.Label();
             this.TotalItems = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -263,9 +263,12 @@ namespace GroceryApplication
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 15);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(468, 266);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -281,36 +284,6 @@ namespace GroceryApplication
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(475, 166);
             this.panel4.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(177, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 24);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Total Items:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(200, 91);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 24);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Subtotal:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(150, 63);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(132, 24);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Taxable Items:";
             // 
             // TaxableItems
             // 
@@ -341,6 +314,36 @@ namespace GroceryApplication
             this.TotalItems.Size = new System.Drawing.Size(20, 24);
             this.TotalItems.TabIndex = 15;
             this.TotalItems.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(150, 63);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 24);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Taxable Items:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(200, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 24);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Subtotal:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(177, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 24);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Total Items:";
             // 
             // MainForm
             // 

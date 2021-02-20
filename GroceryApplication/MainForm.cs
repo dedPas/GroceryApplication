@@ -41,8 +41,7 @@ namespace GroceryApplication
 
         private void RemoveItem_Click(object sender, EventArgs e)
         {
-            //TODO - at the end of all the code above
-            Dao.DeleteRecord();
+            RemoveAnItem();
         }
 
         private void UpdateItem_Click(object sender, EventArgs e)
@@ -135,6 +134,7 @@ namespace GroceryApplication
                 #endregion
 
                 Dao.AddRecord(ItemData, model);
+                dataGridView1.DataSource = ItemData;
                 Initialize();
 
                 return true;
@@ -146,6 +146,33 @@ namespace GroceryApplication
             }
         }
 
+        private bool RemoveAnItem()
+        {
+            bool retVal = true;
+
+            try
+            {
+                foreach (DataRow row in ItemData.Rows)
+                {
+                    var itemName = row["ItemName"].ToString();
+                    var deleteDecision = MessageBox.Show($"Would you like to remove item {itemName}?",
+                        "Delete Item?",
+                        MessageBoxButtons.YesNo);
+
+                    if (deleteDecision.ToString() == "Yes")
+                    {
+                        Dao.DeleteRecord(ItemData, itemName);
+                        return retVal;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                retVal = false;
+            }
+            return retVal;
+        }
         #endregion
     }
 }

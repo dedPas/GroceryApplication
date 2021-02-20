@@ -13,7 +13,7 @@ namespace GroceryApplication.DAO
         DataTable CreateDataTable();
         bool AddRecord(DataTable dt, ListModel model);
         void UpdateRecord();
-        void DeleteRecord();
+        void DeleteRecord(DataTable dt, string value);
         void DeleteAllRecords();
 
     }
@@ -26,7 +26,7 @@ namespace GroceryApplication.DAO
             dataTable.Columns.Add("ItemName", typeof(string));
             dataTable.Columns.Add("ItemPrice", typeof(decimal));
             dataTable.Columns.Add("ItemQuantity", typeof(short));
-            dataTable.Columns.Add("Taxable", typeof(bool));
+            dataTable.Columns.Add("Taxable", typeof(string));
 
             return dataTable;
         }
@@ -39,7 +39,7 @@ namespace GroceryApplication.DAO
                 row["ItemName"] = model.ItemName;
                 row["ItemPrice"] = model.ItemPrice;
                 row["ItemQuantity"] = model.ItemQuantity;
-                row["Taxable"] = model.Taxable;
+                row["Taxable"] = model.Taxable ? "T" : string.Empty;
                 dt.Rows.Add(row);
 
                 return true;
@@ -56,9 +56,18 @@ namespace GroceryApplication.DAO
 
         }
 
-        public void DeleteRecord()
+        public void DeleteRecord(DataTable dt, string value)
         {
+            for (int i = dt.Rows.Count - 1; i >= 0; i--)
+            {
+                var dr = dt.Rows[i];
 
+                if (dr["ItemName"].ToString() == value.ToString())
+                {
+                    dr.Delete();
+                    dt.AcceptChanges();
+                }
+            }
         }
 
         public void DeleteAllRecords()
